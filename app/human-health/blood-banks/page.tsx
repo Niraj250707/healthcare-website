@@ -119,7 +119,6 @@ export default function BloodBanksPage() {
                       variant={selectedBloodType === type ? "default" : "outline"}
                       size="sm"
                       onClick={() => setSelectedBloodType(type)}
-                      className="bg-transparent"
                     >
                       {type === "all" ? "All Types" : type}
                     </Button>

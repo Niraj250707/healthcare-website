@@ -5,8 +5,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Activity, User, Heart, Wrench, ArrowRight, Home } from "lucide-react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 export default function CategoriesPage() {
+  const router = useRouter()
+
   const categories = [
     {
       id: "human",
@@ -88,7 +91,7 @@ export default function CategoriesPage() {
                 key={category.id}
                 className={`hover-lift cursor-pointer transition-all duration-300 hover:shadow-xl ${category.bgColor} border-2 hover:border-primary/50 animate-fade-in`}
                 style={{ animationDelay: `${index * 0.2}s` }}
-                onClick={() => (window.location.href = category.href)}
+                onClick={() => router.push(category.href)}
               >
                 <CardHeader className="text-center pb-4">
                   <div
@@ -130,7 +133,7 @@ export default function CategoriesPage() {
                     className={`w-full hover-lift ${category.color.replace("text-", "bg-")} text-white`}
                     onClick={(e) => {
                       e.stopPropagation()
-                      window.location.href = category.href
+                      router.push(category.href)
                     }}
                   >
                     Get Started
