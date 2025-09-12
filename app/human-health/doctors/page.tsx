@@ -25,6 +25,11 @@ export default function DoctorsPage() {
       availability: "Available Today",
       nextSlot: "2:30 PM",
       languages: ["English", "Spanish"],
+      isHotDoctor: true,
+      consultationFee: "$150",
+      certificates: ["Board Certified Cardiologist", "FACC", "MD Harvard Medical"],
+      reviews: 342,
+      specializations: ["Heart Surgery", "Cardiac Catheterization", "Preventive Cardiology"],
     },
     {
       name: "Dr. Michael Chen",
@@ -38,6 +43,11 @@ export default function DoctorsPage() {
       availability: "Available Tomorrow",
       nextSlot: "10:00 AM",
       languages: ["English", "Mandarin"],
+      isHotDoctor: true,
+      consultationFee: "$120",
+      certificates: ["Board Certified Pediatrician", "FAAP", "MD Johns Hopkins"],
+      reviews: 298,
+      specializations: ["Child Development", "Pediatric Immunology", "Adolescent Medicine"],
     },
     {
       name: "Dr. Emily Rodriguez",
@@ -51,6 +61,11 @@ export default function DoctorsPage() {
       availability: "Available This Week",
       nextSlot: "Thu 11:15 AM",
       languages: ["English", "Spanish", "Portuguese"],
+      isHotDoctor: false,
+      consultationFee: "$130",
+      certificates: ["Board Certified Dermatologist", "MD Stanford Medical"],
+      reviews: 187,
+      specializations: ["Cosmetic Dermatology", "Skin Cancer", "Acne Treatment"],
     },
     {
       name: "Dr. James Wilson",
@@ -64,6 +79,10 @@ export default function DoctorsPage() {
       availability: "Available Next Week",
       nextSlot: "Mon 9:00 AM",
       languages: ["English"],
+      isHotDoctor: true,
+      consultationFee: "$180",
+      certificates: ["Board Certified Orthopedic Surgeon", "Fellowship Sports Medicine"],
+      specializations: ["Sports Injuries", "Joint Replacement", "Spine Surgery"],
     },
   ]
 
@@ -115,6 +134,34 @@ export default function DoctorsPage() {
           <p className="text-lg text-muted-foreground">Search for specialist doctors and book appointments</p>
         </div>
 
+        {/* Hot Doctors Section */}
+        <div className="max-w-4xl mx-auto mb-8">
+          <Card className="bg-gradient-to-r from-destructive/10 to-orange-500/10 border-destructive/20">
+            <CardContent className="p-6">
+              <h2 className="text-xl font-bold mb-4 flex items-center">🔥 Hot Doctors - Most Booked This Week</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {doctors
+                  .filter((doctor) => doctor.isHotDoctor)
+                  .map((doctor, index) => (
+                    <div key={index} className="bg-background/50 rounded-lg p-4 hover-lift">
+                      <h3 className="font-semibold">{doctor.name}</h3>
+                      <p className="text-sm text-muted-foreground">{doctor.specialty}</p>
+                      <div className="flex items-center mt-2">
+                        <Star className="h-4 w-4 text-yellow-500 mr-1" />
+                        <span className="text-sm">
+                          {doctor.rating} ({doctor.reviews} reviews)
+                        </span>
+                      </div>
+                      <Badge variant="destructive" className="mt-2 text-xs">
+                        {doctor.consultationFee}
+                      </Badge>
+                    </div>
+                  ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
         {/* Search and Filters */}
         <div className="max-w-4xl mx-auto mb-8 animate-fade-in">
           <Card>
@@ -158,7 +205,14 @@ export default function DoctorsPage() {
                   <div className="flex-1">
                     <div className="flex items-start justify-between mb-2">
                       <div>
-                        <h3 className="text-xl font-semibold mb-1">{doctor.name}</h3>
+                        <div className="flex items-center gap-2 mb-1">
+                          <h3 className="text-xl font-semibold">{doctor.name}</h3>
+                          {doctor.isHotDoctor && (
+                            <Badge variant="destructive" className="text-xs">
+                              🔥 Hot
+                            </Badge>
+                          )}
+                        </div>
                         <p className="text-secondary font-medium mb-1">{doctor.specialty}</p>
                         <p className="text-sm text-muted-foreground mb-2">{doctor.clinic}</p>
                         <div className="flex items-center text-muted-foreground text-sm mb-2">
@@ -174,7 +228,9 @@ export default function DoctorsPage() {
                     <div className="flex items-center gap-4 mb-3">
                       <div className="flex items-center">
                         <Star className="h-4 w-4 text-yellow-500 mr-1" />
-                        <span className="text-sm font-medium">{doctor.rating}</span>
+                        <span className="text-sm font-medium">
+                          {doctor.rating} ({doctor.reviews} reviews)
+                        </span>
                       </div>
                       <div className="flex items-center text-sm text-muted-foreground">
                         <Navigation className="h-4 w-4 mr-1" />
@@ -186,7 +242,30 @@ export default function DoctorsPage() {
                       </div>
                     </div>
 
+                    {/* Certificates and Specializations */}
                     <div className="space-y-2">
+                      <div>
+                        <p className="text-sm font-medium mb-1">Certificates:</p>
+                        <div className="flex flex-wrap gap-1">
+                          {doctor.certificates.map((cert, idx) => (
+                            <Badge key={idx} variant="outline" className="text-xs">
+                              {cert}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div>
+                        <p className="text-sm font-medium mb-1">Specializations:</p>
+                        <div className="flex flex-wrap gap-1">
+                          {doctor.specializations.map((spec, idx) => (
+                            <Badge key={idx} variant="secondary" className="text-xs">
+                              {spec}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+
                       <div>
                         <p className="text-sm font-medium mb-1">Next Available:</p>
                         <Badge variant="outline" className="text-xs">
@@ -204,6 +283,13 @@ export default function DoctorsPage() {
                           ))}
                         </div>
                       </div>
+
+                      <div>
+                        <p className="text-sm font-medium mb-1">Consultation Fee:</p>
+                        <Badge variant="default" className="text-xs">
+                          {doctor.consultationFee}
+                        </Badge>
+                      </div>
                     </div>
                   </div>
 
@@ -212,7 +298,13 @@ export default function DoctorsPage() {
                       <Phone className="h-4 w-4 mr-2" />
                       {doctor.phone}
                     </Button>
-                    <Button size="sm" className="hover-lift bg-secondary text-secondary-foreground">
+                    <Button
+                      size="sm"
+                      className="hover-lift bg-secondary text-secondary-foreground"
+                      onClick={() =>
+                        (window.location.href = `/payment?doctor=${encodeURIComponent(doctor.name)}&fee=${doctor.consultationFee}&slot=${encodeURIComponent(doctor.nextSlot)}`)
+                      }
+                    >
                       <Calendar className="h-4 w-4 mr-2" />
                       Book Appointment
                     </Button>

@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { MessageCircle, X, Send, Bot } from "lucide-react"
-import { useRouter } from "next/navigation"
 
 interface ChatWidgetProps {
   specialty?: "human" | "animal" | "automotive"
@@ -14,7 +13,6 @@ interface ChatWidgetProps {
 export function ChatWidget({ specialty = "human" }: ChatWidgetProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [message, setMessage] = useState("")
-  const router = useRouter()
 
   const getSpecialtyInfo = () => {
     switch (specialty) {
@@ -46,7 +44,8 @@ export function ChatWidget({ specialty = "human" }: ChatWidgetProps) {
 
   const handleSendMessage = () => {
     if (message.trim()) {
-      router.push(`/chat?specialty=${specialty}&message=${encodeURIComponent(message)}`)
+      // Redirect to full chat page with context
+      window.location.href = `/chat?specialty=${specialty}&message=${encodeURIComponent(message)}`
     }
   }
 
@@ -109,7 +108,7 @@ export function ChatWidget({ specialty = "human" }: ChatWidgetProps) {
                     </Button>
                     <Button
                       variant="outline"
-                      onClick={() => router.push(`/chat?specialty=${specialty}`)}
+                      onClick={() => (window.location.href = `/chat?specialty=${specialty}`)}
                       className="bg-transparent"
                     >
                       Full Chat

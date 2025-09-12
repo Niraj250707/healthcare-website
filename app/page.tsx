@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-import { useRouter } from "next/navigation"
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -20,8 +19,6 @@ export default function HomePage() {
     confirmPassword: "",
   })
 
-  const router = useRouter()
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -34,7 +31,7 @@ export default function HomePage() {
     // Handle form submission
     console.log("Form submitted:", formData)
     // Redirect to category selection page
-    router.push("/categories")
+    window.location.href = "/categories"
   }
 
   return (
@@ -52,7 +49,7 @@ export default function HomePage() {
             variant="destructive"
             size="lg"
             className="emergency-pulse hover-lift ripple-effect animate-slide-in-right"
-            onClick={() => router.push("/emergency")}
+            onClick={() => (window.location.href = "/emergency")}
           >
             <AlertTriangle className="mr-2 h-5 w-5" />
             Emergency Service

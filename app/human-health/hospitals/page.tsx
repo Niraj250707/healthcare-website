@@ -120,7 +120,7 @@ export default function HospitalsPage() {
                       variant={selectedSpecialty === specialty ? "default" : "outline"}
                       size="sm"
                       onClick={() => setSelectedSpecialty(specialty)}
-                      className="capitalize bg-transparent"
+                      className="capitalize"
                     >
                       {specialty}
                     </Button>
