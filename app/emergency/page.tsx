@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { AlertTriangle, Phone, MapPin, Clock, ArrowLeft } from "lucide-react"
+import { AlertTriangle, Phone, MapPin, Clock, ArrowLeft, Truck } from "lucide-react"
 import Link from "next/link"
 
 export default function EmergencyPage() {
@@ -48,6 +48,40 @@ export default function EmergencyPage() {
           </CardContent>
         </Card>
 
+        <Card className="border-orange-500 bg-orange-50/50 mb-8 animate-fade-in">
+          <CardContent className="p-6">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex items-center space-x-4">
+                <Truck className="h-12 w-12 text-orange-600" />
+                <div>
+                  <h3 className="text-xl font-bold text-orange-800 mb-1">Need an Ambulance?</h3>
+                  <p className="text-orange-700">Book emergency or non-emergency medical transport</p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <Button
+                  variant="destructive"
+                  size="lg"
+                  className="hover-lift"
+                  onClick={() => (window.location.href = "/ambulance-booking?type=emergency")}
+                >
+                  <AlertTriangle className="mr-2 h-4 w-4" />
+                  Emergency Ambulance
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="hover-lift bg-transparent border-orange-500 text-orange-700 hover:bg-orange-50"
+                  onClick={() => (window.location.href = "/ambulance-booking?type=non-emergency")}
+                >
+                  <Truck className="mr-2 h-4 w-4" />
+                  Schedule Transport
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Emergency Contacts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {emergencyContacts.map((contact, index) => (
@@ -79,7 +113,11 @@ export default function EmergencyPage() {
             <CardContent className="p-6 text-center">
               <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">Find Nearest Hospital</h3>
-              <Button variant="outline" className="w-full bg-transparent">
+              <Button
+                variant="outline"
+                className="w-full bg-transparent"
+                onClick={() => (window.location.href = "/human-health/hospitals")}
+              >
                 Locate Now
               </Button>
             </CardContent>
@@ -89,7 +127,11 @@ export default function EmergencyPage() {
             <CardContent className="p-6 text-center">
               <Clock className="h-12 w-12 text-secondary mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">24/7 Nurse Hotline</h3>
-              <Button variant="outline" className="w-full bg-transparent">
+              <Button
+                variant="outline"
+                className="w-full bg-transparent"
+                onClick={() => (window.location.href = "/human-health/helpline")}
+              >
                 Call Now
               </Button>
             </CardContent>

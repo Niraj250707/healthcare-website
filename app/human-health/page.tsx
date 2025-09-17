@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Activity, User, MapPin, Phone, ArrowLeft, MessageCircle, Clock, Star } from "lucide-react"
+import { Activity, User, MapPin, Phone, ArrowLeft, MessageCircle, Clock, Star, Pill } from "lucide-react"
 import Link from "next/link"
 import { ChatWidget } from "@/components/chat-widget"
 
@@ -35,6 +35,15 @@ export default function HumanHealthPage() {
       action: "Find Doctors",
       href: "/human-health/doctors",
       stats: "200+ Doctors",
+    },
+    {
+      title: "Medical Stores & Pharmacies",
+      description: "Find nearby pharmacies with medicine availability",
+      icon: Pill,
+      color: "text-green-600",
+      action: "Find Pharmacies",
+      href: "/human-health/pharmacies",
+      stats: "150+ Pharmacies",
     },
     {
       title: "24/7 Helpline",
@@ -99,7 +108,7 @@ export default function HumanHealthPage() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
           {healthServices.map((service, index) => {
             const IconComponent = service.icon
             return (

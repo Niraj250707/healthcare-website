@@ -5,7 +5,19 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { Activity, ArrowLeft, MapPin, Phone, Clock, Star, User, Navigation, Search, Calendar } from "lucide-react"
+import {
+  Activity,
+  ArrowLeft,
+  MapPin,
+  Phone,
+  Clock,
+  Star,
+  User,
+  Navigation,
+  Search,
+  Calendar,
+  Video,
+} from "lucide-react"
 import Link from "next/link"
 
 export default function DoctorsPage() {
@@ -297,6 +309,17 @@ export default function DoctorsPage() {
                     <Button variant="outline" size="sm" className="hover-lift bg-transparent">
                       <Phone className="h-4 w-4 mr-2" />
                       {doctor.phone}
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="hover-lift bg-transparent"
+                      onClick={() =>
+                        (window.location.href = `/video-consultation?doctor=${encodeURIComponent(doctor.name)}&specialty=${doctor.specialty}&fee=${doctor.consultationFee}`)
+                      }
+                    >
+                      <Video className="h-4 w-4 mr-2" />
+                      Video Call
                     </Button>
                     <Button
                       size="sm"
