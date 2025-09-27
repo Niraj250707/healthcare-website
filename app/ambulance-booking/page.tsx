@@ -74,7 +74,7 @@ export default function AmbulanceBookingPage() {
       baseTime = 5
     }
 
-    setEstimatedCost(`$${baseCost}`)
+    setEstimatedCost(`₹${baseCost}`)
     setEstimatedTime(`${baseTime} min`)
   }, [serviceDetails.serviceType, bookingType])
 
@@ -116,7 +116,7 @@ export default function AmbulanceBookingPage() {
   const handleBooking = () => {
     // In a real app, this would process the booking
     alert(`Ambulance booking confirmed! Estimated arrival: ${estimatedTime}`)
-    window.location.href = "/payment?service=ambulance&amount=" + estimatedCost.replace("$", "")
+    window.location.href = "/payment?service=ambulance&amount=" + estimatedCost.replace("₹", "")
   }
 
   return (
