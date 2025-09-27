@@ -32,7 +32,7 @@ export default function EPrescriptionPage() {
   ])
 
   const [patientInfo, setPatientInfo] = useState({
-    name: "John Smith",
+    name: "Kaival Solanki",
     age: "45",
     gender: "Male",
     phone: "(555) 123-4567",
@@ -40,7 +40,7 @@ export default function EPrescriptionPage() {
   })
 
   const [doctorInfo] = useState({
-    name: "Dr. Sarah Johnson",
+    name: "Dr. Niraj Sharma ",
     specialty: "Cardiology",
     license: "MD12345",
     clinic: "Heart Care Center",
