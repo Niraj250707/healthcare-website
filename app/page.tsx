@@ -28,6 +28,10 @@ export default function HomePage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    if (isSignUp && formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match. Please check and try again.")
+      return
+    }
     // Handle form submission
     console.log("Form submitted:", formData)
     // Redirect to category selection page
@@ -174,7 +178,11 @@ export default function HomePage() {
                     </div>
                   )}
 
-                  <Button type="submit" className="w-full hover-lift ripple-effect animate-fade-in stagger-4">
+                  <Button
+                    type="submit"
+                    className="w-full hover-lift ripple-effect animate-fade-in stagger-4"
+                    disabled={isSignUp && formData.password !== formData.confirmPassword}
+                  >
                     {isSignUp ? "Create Account" : "Sign In"}
                   </Button>
                 </form>
