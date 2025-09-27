@@ -14,9 +14,9 @@ export default function BloodBanksPage() {
 
   const bloodBanks = [
     {
-      name: "Central Blood Bank",
+      name: "Krishna blood banck",
       address: "456 Health Plaza, Medical District",
-      distance: "0.5 miles",
+      distance: "500 meter",
       phone: "(555) 111-2222",
       hours: "24/7",
       bloodTypes: ["O+", "O-", "A+", "A-", "B+", "AB+"],
@@ -26,7 +26,7 @@ export default function BloodBanksPage() {
     {
       name: "Red Cross Blood Center",
       address: "789 Charity Avenue, Downtown",
-      distance: "1.1 miles",
+      distance: "1.1 KM",
       phone: "(555) 333-4444",
       hours: "6 AM - 10 PM",
       bloodTypes: ["O+", "A+", "B+", "B-", "AB-"],
@@ -36,7 +36,7 @@ export default function BloodBanksPage() {
     {
       name: "Community Blood Services",
       address: "321 Community Road, Suburbs",
-      distance: "2.3 miles",
+      distance: "2.3 KM",
       phone: "(555) 555-6666",
       hours: "8 AM - 6 PM",
       bloodTypes: ["O+", "O-", "A+", "A-", "AB+", "AB-"],
@@ -46,7 +46,7 @@ export default function BloodBanksPage() {
     {
       name: "University Blood Bank",
       address: "654 Campus Drive, University Area",
-      distance: "3.2 miles",
+      distance: "3.2 KM",
       phone: "(555) 777-8888",
       hours: "9 AM - 5 PM",
       bloodTypes: ["All Types"],

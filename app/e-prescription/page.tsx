@@ -32,11 +32,11 @@ export default function EPrescriptionPage() {
   ])
 
   const [patientInfo, setPatientInfo] = useState({
-    name: "Kaival Solanki",
-    age: "45",
+    name: "Neel Patel",
+    age: "18",
     gender: "Male",
     phone: "(555) 123-4567",
-    email: "john.smith@email.com",
+    email: "neelpatel13@email.com",
   })
 
   const [doctorInfo] = useState({

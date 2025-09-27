@@ -36,7 +36,7 @@ export default function DoctorsPage() {
       phone: "(555) 123-4567",
       availability: "Available Today",
       nextSlot: "2:30 PM",
-      languages: ["English", "Spanish" , "Hindi"],
+      languages: ["English", "Punjabi" , "Hindi" , "Gujarati"],
       isHotDoctor: true,
       consultationFee: "Rs 500",
       certificates: ["Board Certified Cardiologist", "FACC", "MD Harvard Medical"],

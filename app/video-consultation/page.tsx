@@ -31,7 +31,7 @@ export default function VideoConsultationPage() {
   const [isAudioOn, setIsAudioOn] = useState(true)
   const [isCallActive, setIsCallActive] = useState(false)
   const [chatMessages, setChatMessages] = useState([
-    { sender: "Dr. Sarah Johnson", message: "Hello! I can see you're ready for our consultation.", time: "2:30 PM" },
+    { sender: "Dr. Niraj Sharma ", message: "Hello! I can see you're ready for our consultation.", time: "2:30 PM" },
     { sender: "You", message: "Yes, thank you doctor. I'm having some chest discomfort.", time: "2:31 PM" },
   ])
   const [newMessage, setNewMessage] = useState("")
@@ -40,9 +40,9 @@ export default function VideoConsultationPage() {
 
   // Mock doctor info from URL params
   const doctorInfo = {
-    name: "Dr. Sarah Johnson",
+    name: "Dr. Niraj Sharma",
     specialty: "Cardiology",
-    consultationFee: "$150",
+    consultationFee: "Rs 500",
     appointmentTime: "2:30 PM - 3:00 PM",
   }
 
